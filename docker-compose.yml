@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  mongodb:
+    image: "mongo:3.6"
+    hostname: "mongodb"
+    ports:
+      - 27017:27017
+    container_name: "mongo-login-api"
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+    volumes:
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
