@@ -1,0 +1,24 @@
+{
+  "name": "login-api",
+  "version": "1.0.0",
+  "description": "Simples Login API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidwr/login-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidwr/login-api/issues"
+  },
+  "homepage": "https://github.com/davidwr/login-api#readme",
+  "dependencies": {
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1"
+  }
+}

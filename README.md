@@ -1,2 +1,2 @@
 # login-api
-Simples Login API
+Simple Login API
