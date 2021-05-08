@@ -1,17 +1,28 @@
 require('dotenv').config()
 
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000
+const { start: startApi, shutdown: shutdownApi } = require('./api')
 
-const helmet = require('helmet')
+async function main() {
+  try {
+    await startApi()
+  } catch (error) {
+    console.log(error)
+    await shutdown()
+  }
+}
 
-const router = require('./routes')
+async function shutdown() {
+  await shutdownApi()
+  process.exit(0)
+}
 
-app.use(helmet())
-app.use(express.json())
-app.use('/v1', router)
+process.on('SIGINT', shutdown)
+process.on('SIGTERM', shutdown)
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+process.on('unhandledRejection', (reason, promise) => {
+  console.log(`Unhandled Rejection at: promise ${promise}, reason: ${reason}`)
+  console.trace()
+  return shutdown()
 })
+
+main().catch(shutdown)
