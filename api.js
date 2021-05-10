@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -14,6 +15,7 @@ async function start() {
   dbConnection = await db.connect()
 
   return new Promise((resolve) => {
+    app.use(cors())
     app.use(helmet())
     app.use(express.json())
     app.use('/v1', router)
