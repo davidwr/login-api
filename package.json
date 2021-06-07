@@ -4,6 +4,7 @@
   "description": "Simples Login API",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,10 +25,13 @@
     "express": "^4.17.1",
     "express-validator": "^6.11.1",
     "helmet": "^4.6.0",
+    "i": "^0.3.6",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.6",
+    "npm": "^7.16.0",
     "passport": "^0.4.1",
-    "passport-facebook": "^3.0.0"
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

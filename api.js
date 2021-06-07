@@ -25,6 +25,7 @@ async function start() {
     app.use(passport.session())
     app.use('/v1/jwt', routers.jwt)
     app.use('/v1/facebook', routers.facebook)
+    app.use('/v1/google', routers.google)
 
     server = app.listen(port, () => {
       console.log(`Server listening on ${server.address().port}!`)
